@@ -1,0 +1,12 @@
+## Interface: 11200
+## Title: Attack Power Display
+## Notes: Runtime display melee attack power
+## Version: v1.0.2
+## DefaultState: enabled
+## Author: Meem(chirsjericho@gmail)
+## SavedVariablesPerCharacter: apd_opts
+## X-Curse-Project-ID: 351776
+
+apd.lua
+
+
