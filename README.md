@@ -1,7 +1,5 @@
 # Attack Power Display
 
-Attack Power Display is an UI mod for runtime monitor your attack power.
+Attack Power Display is an UI realtime monitor for your attack power. Useful for warriors.
 
-## Download
-
-[Curseforge](https://www.curseforge.com/wow/addons/attack-power-display)
+original: [Curseforge](https://www.curseforge.com/wow/addons/attack-power-display)
