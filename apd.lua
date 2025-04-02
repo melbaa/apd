@@ -7,7 +7,7 @@ local playerClass = string.upper(UnitClass('player'));
 -- Interface
 APD.f1 = CreateFrame("Frame",nil,UIParent)
 APD.f1:SetMovable(true)
-APD.f1:EnableMouse(true)
+--APD.f1:EnableMouse(true)
 APD.f1:SetWidth(100) 
 APD.f1:SetHeight(100) 
 APD.f1:SetAlpha(.90);
@@ -45,7 +45,7 @@ function APD:Init()
     APD.f1:SetPoint(apd_opts.point, UIParent, apd_opts.rel_point, apd_opts.x_offset, apd_opts.y_offset)
 end
  
-function displayupdate(show, message)
+local function displayupdate(show, message)
     if show == 1 then
         APD.f1.text:SetText(message)
         APD.f1:Show()
@@ -56,7 +56,40 @@ function displayupdate(show, message)
     end
 end
 
-function displayString()
+
+local function displayAP()
+    local base, posBuff, negBuff = UnitAttackPower("player");
+    local ap = base + posBuff + negBuff;
+    return "|cffffffff AP "..ap
+end
+
+local function displayRAP()
+    local base, posBuff, negBuff = UnitRangedAttackPower("player");
+    local ap = base + posBuff + negBuff;
+    return "|cffffffff RAP "..ap
+end
+
+local function displaySP()
+    local sp = GetSpellBonusDamage(1);
+    -- Holy
+    -- sp = GetSpellBonusDamage(2);
+    -- Fire
+    -- sp = GetSpellBonusDamage(3);
+    -- Nature
+    -- sp = GetSpellBonusDamage(4);
+    -- Frost
+    -- sp = GetSpellBonusDamage(5);
+    -- Shadow
+    -- sp = GetSpellBonusDamage(6);
+    -- Arcane
+    -- sp = GetSpellBonusDamage(7);
+
+    return "|cffffffff SP "..sp
+end
+
+
+
+local function displayString()
     local ret
     if playerClass=="WARRIOR" then
         ret = displayAP()
@@ -74,36 +107,6 @@ function displayString()
         ret = displayAP()
     end
     return ret
-end
-
-function displayAP()
-    local base, posBuff, negBuff = UnitAttackPower("player");
-    local ap = base + posBuff + negBuff;
-    return "|cffffffff AP "..ap
-end
-
-function displayRAP()
-    local base, posBuff, negBuff = UnitRangedAttackPower("player");
-    local ap = base + posBuff + negBuff;
-    return "|cffffffff RAP "..ap
-end
-
-function displaySP()
-    local sp = GetSpellBonusDamage(1);
-    -- Holy
-    -- sp = GetSpellBonusDamage(2);
-    -- Fire
-    -- sp = GetSpellBonusDamage(3);
-    -- Nature
-    -- sp = GetSpellBonusDamage(4);
-    -- Frost
-    -- sp = GetSpellBonusDamage(5);
-    -- Shadow
-    -- sp = GetSpellBonusDamage(6);
-    -- Arcane
-    -- sp = GetSpellBonusDamage(7);
-
-    return "|cffffffff SP "..sp
 end
 
 -- f1:RegisterEvent("ACTIVE_TALENT_GROUP_CHANGED")
